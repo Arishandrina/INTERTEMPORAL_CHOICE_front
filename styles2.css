@@ -1,0 +1,273 @@
+.страница2 {
+    position: absolute;
+    background-color: #ffffff;
+    height: 1744px;
+    width: 896px;
+    padding: 0px;
+}
+
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    border-radius: 50%; 
+    background: #fff3e6; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    border-radius: 50%; 
+    height: 25px; /* Slider handle height */
+    background: #000000; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    border-radius: 50%; 
+    background: #000000; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.решение {
+    color: #000000;
+    text-align: center;
+    vertical-align: text-middle;
+    font-size: 15px;
+    font-family: ITF Devanagari;
+    line-height: auto;
+    border-style: hidden;
+    outline: none;
+    left: 11px;
+    top: 550px;
+    position: absolute;
+    width: 117px;
+}
+
+.button {
+    background-color: #fef3e5;
+    height: 400px;
+    width: 400px;
+    top: 49px;
+    left: 29px;
+    position: absolute;
+}
+
+.button2 {
+    background-color: #fef3e5;
+    height: 577px;
+    width: 400px;
+    top: 587px;
+    left: 29px;
+    position: absolute;
+}
+
+.button3 {
+    background-color: #ffb762;
+    height: 38px;
+    width: 319px;
+    top: 481px;
+    left: 69px;
+    position: absolute;
+}
+
+.button4 {
+    background-color: #ffb762;
+    height: 38px;
+    width: 53px;
+    top: 120px;
+    left: 453px;
+    position: absolute;
+}
+
+.m1 {
+    color: #000000;
+    text-align: center;
+    vertical-align: text-middle;
+    font-size: 15px;
+    font-family: Istok Web;
+    left: 421px;
+    top: 127px;
+    width: 117px;
+    height: 25px;
+    position: absolute;
+    line-height: auto;
+    border-style: hidden;
+    outline: none;
+}
+
+.button5 {
+    background-color: #ffb762;
+    height: 38px;
+    width: 53px;
+    top: 221px;
+    left: 453px;
+    position: absolute;
+}
+
+.button6 {
+    background-color: #ffb762;
+    height: 38px;
+    width: 53px;
+    top: 322px;
+    left: 453px;
+    position: absolute;
+}
+
+.m2 {
+    color: #000000;
+    text-align: center;
+    vertical-align: text-middle;
+    font-size: 15px;
+    font-family: Istok Web;
+    left: 421px;
+    top: 227px;
+    width: 117px;
+    height: 25px;
+    position: absolute;
+    line-height: auto;
+    border-style: hidden;
+    outline: none;
+}
+
+.r {
+    color: #000000;
+    text-align: center;
+    vertical-align: text-middle;
+    font-size: 15px;
+    font-family: Istok Web;
+    left: 421px;
+    top: 328px;
+    width: 117px;
+    height: 25px;
+    position: absolute;
+    line-height: auto;
+    border-style: hidden;
+    outline: none;
+}
+
+.button7 {
+    background-color: #fff3e6;
+    height: 38px;
+    width: 303px;
+    top: 120px;
+    left: 525px;
+    border-radius: 8px;
+    position: absolute;
+}
+
+.button8 {
+    background-color: #fff3e6;
+    height: 38px;
+    width: 303px;
+    top: 221px;
+    left: 525px;
+    border-radius: 8px;
+    position: absolute;
+}
+
+.button9 {
+    background-color: #fff3e6;
+    height: 38px;
+    width: 303px;
+    top: 322px;
+    left: 525px;
+    position: absolute;
+}
+
+.button10 {
+    background-color: #ffb762;
+    height: 68px;
+    width: 319px;
+    top: 1608px;
+    left: 274px;
+    position: absolute;
+}
+
+.button11 {
+    background-color: #d2f7ff;
+    height: 288px;
+    width: 899px;
+    top: 1254px;
+    left: 0px;
+    position: absolute;
+}
+
+.фото3 {
+    height: 52px;
+    width: 319px;
+    left: 274px;
+    top: 1624px;
+    position: absolute;
+}
+
+.фото2 {
+    height: 209px;
+    width: 124px;
+    left: 29px;
+    top: 1327px;
+    position: absolute;
+}
+
+.фото1 {
+    height: 243px;
+    width: 320px;
+    left: 554px;
+    top: 1293px;
+    position: absolute;
+}
+
+
+
+#canvas {
+    position: absolute;
+}
+
+.ui-draggable,
+.ui-droppable {
+    background-position: top;
+}
+
+#draggable {
+    background: #fff;
+    width: 150px;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    border-radius: 10px;
+    padding: 5px;
+    left: 50%;
+    top: 100px;
+}
+
+.current-value {
+    position: absolute !important;
+
+    appearance: none;
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+
+}
