@@ -6,7 +6,12 @@
     <meta charset='utf-8' />
     <script type="module" src="model_in_browser.js"></script>
     <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="styles2.css">
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
 </head>
 
 <body>
@@ -19,11 +24,127 @@
             Доход во 2 периоде</div>
         <div id='ставкапроцента' class='ставкапроцента'>
             Ставка процента</div>
-        <input type="number" id="m1" value="100" class="button">
-        <input type="number" id="m2" value="100" class="button2">
-        <input type="number" id="r" value="100" class="button3">
-        <button id='start' class='start'> <a href="index2.html">Начать</a> </button>
+        <input type="number" id="m1_first" placeholder="100" class="button">
+        <input type="number" id="m2_first" placeholder="100" class="button2">
+        <input type="number" id="r_first" placeholder="100" class="button3">
+        <button type="submit" id='start' class='start'>Начать</button>
+    </div>
+    <div id='страница2' class='страница2'>
+        <div id='решение' class='решение'>
+            Решение:</div>
+        <button id='button_sec' class='button_sec'>
         </button>
+        <span id='text' class='text'>
+            <span> $$\begin{cases}
+             \max_{c1, c2 \geq 0} U(c_{1}, c_{2})\\
+             s.t. (1+r)c_{1} + c_{2} = (1+r)m_{1} + m_{2}
+            \end{cases}$$
+            </span>
+            <span id="figure_1">
+                    <!-- Сюда будем вставлять LateX -->
+            </span>
+            <p align="center">Посчитаем предельную норму замещения MRS для функции (1)</p>
+            <span> $$|MRS_{c_1,c_2}| = \frac{U'_{c_1}(c_1,c_2)}{U'_{c_2}(c_1,c_2)} = \frac{1}{c_1} : \frac{2}{c_2} = \frac{c_2}{2c_1}$$</span>
+            <p align="center">Тангенс угла наклона бюджетной линии: </p>
+            <span>$$\frac{m_2 + m_1 (1 + r)}{m_1 + \frac{m_2}{1+r}} = \frac{(1+r)(m_1 + \frac{m_2}{1+r})}{m_1 + \frac{m_2}{1+r}} = 1 + r$$</span>
+            <span> $$|MRS_{c_1,c_2}| = 1 + r  \Rightarrow  \frac{c_2}{2c_1} = 1 + r  \Rightarrow  c_2 = 2c_1(1+r)$$</span>
+            <span>$$\text{Подставим значение } c_{2} \text{ в исходную систему:}$$</span>
+            <span id="figure_2"> </span>        
+            <span id="figure_3"> </span> 
+            
+        </span>
+        <p id='button3_sec' class='button3_sec'>
+        </p>
+        <button id='button4_sec' class='button4_sec'>
+        </button>
+        <div id='m1_sec' class='m1_sec'>
+            m1</div>
+        <button id='button5_sec' class='button5_sec'>
+        </button>
+        <button id='button6_sec' class='button6_sec'>
+        </button>
+        <div id='m2_sec' class='m2_sec'>
+            m2</div>
+        <div id='r_sec' class='r_sec'>
+            r</div>
+        <button id='button7_sec' class='button7_sec'>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="450" value="imported1" class="slider"
+                    id="FUNCM1">
+                <p>Value: <span id="imported1"></span></p>
+                <script>
+                    // Устанавливаем начальное значение ползунка m2Value
+                    var sliderM1 = document.getElementById("FUNCM1");
+                    sliderM1.value = imported1;
+
+                    // Update displayed value initially to match the slider
+                    var outputM1 = document.getElementById("imported1");
+                    outputM1.innerHTML = sliderM1.value;
+
+                    sliderM1.oninput = function () {
+                        outputM1.innerHTML = this.value;
+                        updateVal(); // Также обновляем значение val
+                    }
+                </script>
+            </div>
+        </button>
+
+        <button id='button8_sec' class='button8_sec'>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="450" value="imported2" class="slider"
+                    id="FUNCM2">
+                <p>Value: <span id="imported2"></span></p>
+                <script>
+                    // Устанавливаем начальное значение ползунка m2Value
+                    var sliderM2 = document.getElementById("FUNCM2");
+                    sliderM2.value = imported2;
+
+                    // Обновляем отображаемое значение, чтобы оно соответствовало ползунку
+                    var outputM2 = document.getElementById("imported2");
+                    outputM2.innerHTML = imported2;
+
+                    // Прослушиватель событий для обновления отображаемого значения
+                    sliderM2.oninput = function () {
+                        outputM2.innerHTML = this.value;
+                        updateVal();
+                    }
+                </script>
+            </div>
+
+        </button>
+
+        <button id='button9_sec' class='button9_sec'>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="imported3" class="slider"
+                    id="FUNCR">
+                <p>Value: <span id="imported3"></span></p>
+                <script>
+                    // Устанавливаем начальное значение ползунка m2Value
+                    var sliderR = document.getElementById("FUNCR");
+                    sliderR.value = imported3;
+
+                    // Update displayed value initially to match the slider
+                    var outputR = document.getElementById("imported3");
+                    outputR.innerHTML = sliderR.value;
+
+                    sliderR.oninput = function () {
+                        outputR.innerHTML = this.value;
+                        updateVal(); // Также обновляем значение val
+                    }
+                </script>
+            </div>
+        </button>
+
+        <button id='Начатьигру' class='Начатьигру'> <a href="index3.html">Начать игру</a> </button>
+
+        <button id='button11_sec' class='button11_sec'>
+        </button>
+
+        <canvas id='canvas' width="400" height="400" class="canvas"></canvas>
+
+        <img id='фото2' class='фото2' src='Девочка.png'/></img> <!-- Фото девочки -->
+        <img id='фото1' class='фото1' src='Банк.png'/></img> <!-- Фото банка -->
+        <img id='фото3' class='фото3' src='Чемодан.png'/></img> <!-- Фото банка -->
     </div>
 
 
