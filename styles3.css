@@ -1,90 +1,94 @@
- .страница3 {
-    position: absolute;
-    background-color: #ffffff;
-    height: 918px;
-    width: 868px;
-    padding: 0px;
+.страница3
+{
+position:absolute;
+background-color:#ffffff;
+height:918px;
+width:868px;
+padding:0px;
 }
-
-.button {
-    background-color: #ffb762;
-    height: 61px;
-    width: 247px;
-    left: 298px;
-    top: 45px;
-    position: absolute;
+.button
+{
+background-color:#ffb762;
+height:61px;
+width:247px;
+left:298px;
+top:45px;
+position:absolute;
 }
-
-.button2 {
-    background-color: #fef3e5;
-    height: 362px;
-    width: 368px;
-    top: 139px;
-    left: 238px;
-    position: absolute;
+.игра
+{
+color:#000000;
+text-align:center;
+vertical-align:text-middle;
+font-size:30px;
+font-family:Istok Web;
+left:363px;
+top:63px;
+width:117px;
+height:25px;
+position:absolute;
+line-height:auto;
+border-style:hidden;
+outline:none;
 }
-
-.button3 {
-    background-color: #fef3e5;
-    height: 44px;
-    width: 52px;
-    top: 40px;
-    left: 748px;
-    position: absolute;
+.button2
+{
+background-color:#fef3e5;
+height:362px;
+width:368px;
+top:139px;
+left:238px;
+position:absolute;
 }
-
-.button4 {
-    background-color: #ffb762;
-    height: 116px;
-    width: 605px;
-    top: 533px;
-    left: 119px;
-    position: absolute;
+.button3
+{
+background-color:#fef3e5;
+height:44px;
+width:52px;
+top:40px;
+left:748px;
+position:absolute;
 }
-
-.очки {
-    color: #000000;
-    text-align: center;
-    vertical-align: text-middle;
-    font-size: 16px;
-    font-family: Inter;
-    left: 650px;
-    top: 50px;
-    width: 110px;
-    height: 25px;
-    position: absolute;
-    line-height: auto;
-    border-style: hidden;
-    outline: none;
+.button4
+{
+background-color:#ffb762;
+height:116px;
+width:605px;
+top:533px;
+left:119px;
+position:absolute;
 }
-
-.button5 {
-    background-color: #d2f7ff;
-    height: 106px;
-    width: 149px;
-    top: 683px;
-    left: 238px;
-    position: absolute;
+.очки
+{
+color:#000000;
+text-align:center;
+vertical-align:text-middle;
+font-size:16px;
+font-family:ITF Devanagari;
+left:650px;
+top:50px;
+width:110px;
+height:25px;
+position:absolute;
+line-height:auto;
+border-style:hidden;
+outline:none;
 }
-
-.button6 {
-    background-color: #d2f7ff;
-    height: 106px;
-    width: 149px;
-    top: 683px;
-    left: 457px;
-    position: absolute;
+.button5
+{
+background-color:#d2f7ff;
+height:106px;
+width:149px;
+top:683px;
+left:238px;
+position:absolute;
 }
-
-.current-value {
-    position: absolute !important;
-    width: 5000px;
-    height: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    /* Center horizontally */
-    margin-top: -20px;
-    /* Adjust vertical spacing as needed */
-    font-size: 140px;
- 
+.button6
+{
+background-color:#d2f7ff;
+height:106px;
+width:149px;
+top:683px;
+left:457px;
+position:absolute;
 }
