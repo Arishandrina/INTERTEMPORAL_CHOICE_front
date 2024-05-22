@@ -1,8 +1,9 @@
 .страница2 {
+    display: none;
     position: absolute;
     background-color: #ffffff;
     height: 1744px;
-    width: 896px;
+    width: 1896px;
     padding: 0px;
 }
 
@@ -58,13 +59,13 @@
     line-height: auto;
     border-style: hidden;
     outline: none;
-    left: 11px;
-    top: 550px;
+    left: 900px;
+    top: 26px;
     position: absolute;
     width: 117px;
 }
 
-.button {
+.canvas {
     background-color: #fef3e5;
     height: 400px;
     width: 400px;
@@ -73,25 +74,29 @@
     position: absolute;
 }
 
-.button2 {
+.text {
     background-color: #fef3e5;
-    height: 577px;
-    width: 400px;
-    top: 587px;
-    left: 29px;
+    height: 550px;
+    width: 510px;
+    top: 57px;
+    left: 900px;
     position: absolute;
 }
 
-.button3 {
+.button3_sec {
+    display: flex;  
     background-color: #ffb762;
     height: 38px;
     width: 319px;
     top: 481px;
     left: 69px;
     position: absolute;
+    justify-content: center; /* Выравнивае по ширине */
+    align-items: center; /* Выравнивае по высоте */
+    font-size: 20px;    
 }
 
-.button4 {
+.button4_sec {
     background-color: #ffb762;
     height: 38px;
     width: 53px;
@@ -100,7 +105,7 @@
     position: absolute;
 }
 
-.m1 {
+.m1_sec {
     color: #000000;
     text-align: center;
     vertical-align: text-middle;
@@ -116,7 +121,7 @@
     outline: none;
 }
 
-.button5 {
+.button5_sec {
     background-color: #ffb762;
     height: 38px;
     width: 53px;
@@ -125,7 +130,7 @@
     position: absolute;
 }
 
-.button6 {
+.button6_sec {
     background-color: #ffb762;
     height: 38px;
     width: 53px;
@@ -134,7 +139,7 @@
     position: absolute;
 }
 
-.m2 {
+.m2_sec {
     color: #000000;
     text-align: center;
     vertical-align: text-middle;
@@ -150,7 +155,7 @@
     outline: none;
 }
 
-.r {
+.r_sec {
     color: #000000;
     text-align: center;
     vertical-align: text-middle;
@@ -166,7 +171,7 @@
     outline: none;
 }
 
-.button7 {
+.button7_sec {
     background-color: #fff3e6;
     height: 38px;
     width: 303px;
@@ -176,7 +181,7 @@
     position: absolute;
 }
 
-.button8 {
+.button8_sec {
     background-color: #fff3e6;
     height: 38px;
     width: 303px;
@@ -186,16 +191,17 @@
     position: absolute;
 }
 
-.button9 {
+.button9_sec {
     background-color: #fff3e6;
     height: 38px;
     width: 303px;
     top: 322px;
     left: 525px;
+    border-radius: 8px;
     position: absolute;
 }
 
-.button10 {
+.Начатьигру {
     background-color: #ffb762;
     height: 68px;
     width: 319px;
@@ -204,11 +210,11 @@
     position: absolute;
 }
 
-.button11 {
-    background-color: #d2f7ff;
-    height: 288px;
-    width: 899px;
-    top: 1254px;
+.button11_sec {
+    background-color: #e9fbff;
+    height: 248px;
+    width: 1896px;
+    top: 614px;
     left: 0px;
     position: absolute;
 }
@@ -217,7 +223,7 @@
     height: 52px;
     width: 319px;
     left: 274px;
-    top: 1624px;
+    top: 1614px;
     position: absolute;
 }
 
@@ -225,38 +231,18 @@
     height: 209px;
     width: 124px;
     left: 29px;
-    top: 1327px;
+    top: 650px;
     position: absolute;
 }
 
 .фото1 {
     height: 243px;
     width: 320px;
-    left: 554px;
-    top: 1293px;
+    left: 954px;
+    top: 615px;
     position: absolute;
 }
 
-
-
-#canvas {
-    position: absolute;
-}
-
-.ui-draggable,
-.ui-droppable {
-    background-position: top;
-}
-
-#draggable {
-    background: #fff;
-    width: 150px;
-    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
-    border-radius: 10px;
-    padding: 5px;
-    left: 50%;
-    top: 100px;
-}
 
 .current-value {
     position: absolute !important;
