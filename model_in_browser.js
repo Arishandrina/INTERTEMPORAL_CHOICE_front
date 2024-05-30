@@ -23,6 +23,15 @@ export class Model_in_browser {
         this.math_model.find_optim_c();
 
         this.make_graph(); // рисуем график
+
+        this.suitcase = document.getElementById('фото3'); //фото чемодана
+        this.suitcase_x = 0;  // Начальная позиция чемодана (по x)
+        this.suitcase_y = 0;  // Начальная позиция чемодана (по y)
+        this.current_status = this.math_model.check_lender_borrower();
+
+        this.place_suitcase(this.current_status); // Размещаем чемодан в начальной позиции
+
+        this.animation_id = null;  // Инициализируем animation_id
     }
 
     updateGraph(m1, m2, r) {
@@ -33,7 +42,6 @@ export class Model_in_browser {
     }
 
     make_graph() {
-
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.fillStyle = '#fff3e6';
         this.ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -198,6 +206,105 @@ export class Model_in_browser {
         dotted_optimum();
         set_status();
     }
+
+    place_suitcase(status) {
+        if (status == 'borrower') {
+            // Чемодан у девочки
+            this.suitcase_x = 150;
+            this.suitcase_y = 651;
+        } else {
+            // Чемодан у банка
+            this.suitcase_x = 760;
+            this.suitcase_y = 651;
+        }
+        this.suitcase.style.left = this.suitcase_x + 'px';
+        this.suitcase.style.top = this.suitcase_y + 'px';
+    }
+    move_suitcase(current_status) {
+        clearInterval(this.animation_id); // Очищаем предыдущую анимацию
+        let target_x;
+        if (current_status == 'borrower') {
+            target_x = 150;   // Чемодан к девочке (слева)
+        } else {
+            target_x = 760;   // Чемодан к банку (справа)
+        }
+
+        this.animation_id = setInterval(() => { // чемодан двигается к противоположному концу картинки
+            if (Math.abs(this.suitcase_x - target_x) < 1) {
+                clearInterval(animation);
+                this.suitcase_x = target_x;
+            } else {
+                this.suitcase_x += 0.1 * (target_x - this.suitcase_x);
+            }
+            this.suitcase.style.left = this.suitcase_x + 'px';
+        }, 20);
+    }
+
+    jump_suitcase() {
+        clearInterval(this.animation_id); // Очищаем предыдущую анимацию
+        const orig_y = this.suitcase_y;
+        let direction = -1;
+
+        this.animation_id = setInterval(() => { // чемодан делает прыжок
+            this.suitcase_y += direction * 2;
+            this.suitcase.style.top = this.suitcase_y + 'px';
+
+            if (this.suitcase_y <= orig_y - 25) {
+                direction = 1;
+            } else if (this.suitcase_y >= orig_y) {
+                clearInterval(this.animation_id);
+                this.suitcase_y = orig_y;
+            }
+        }, 20);
+    }
+
+    updateVal() {
+        var val_m1 = document.getElementById("FUNCM1").value;
+        var val_m2 = document.getElementById("FUNCM2").value;
+        var val_r = document.getElementById("FUNCR").value / 100;
+
+        // Собираем LaTeX строку с обновленным значением
+        var latex_1 = `\\begin{cases}
+        \\max_{c1, c2 \\geq 0} ln(c_{1}) + 2 ln(c_{2})\\\\
+        s.t. (1+${val_r})c_{1} + c_{2} = (1+${val_r})${val_m1} + ${val_m2}
+        \\end{cases}`;
+
+        var latex_2 = `\\begin{cases}
+        c_2 = 2c_1(1+r)\\\\
+        (1+r)c_{1} + c_{2} = (1+r)m_{1} + m_{2}
+        \\end{cases}`;
+
+        const c1_star = val_m1 / 3 + val_m2 / (3 * (1 + val_r));
+        const c2_star = 2 * val_m1 / 3 + 2 * val_m1 * val_r / 3 + 2 * val_m2 / 3;
+
+        var latex_3 = `\\begin{cases}
+        c_1^* = \\dfrac{(1+r)m_1 + m_2}{3(1+r)} = \\dfrac{(1+${val_r})${val_m1} + ${val_m2}}{3(1+${val_r})} = ${Math.round(c1_star)}\\\\
+        c_2^* = \\dfrac{2}{3} ((1+r)m_{1} + m_{2}) = \\dfrac{2}{3} ((1+${val_r})${val_m1} + ${val_m2}) = ${Math.round(c2_star)}
+        \\end{cases}`;
+
+        // Обновляем содержимое span с помощью LaTeX строки
+        document.getElementById("figure_1").innerHTML = latex_1;
+        document.getElementById("figure_2").innerHTML = latex_2;
+        document.getElementById("figure_3").innerHTML = latex_3;
+
+        // Запускаем MathJax для перекомпиляции
+        MathJax.typesetPromise();
+
+        // Обновляем график
+        const prev = this.math_model.check_lender_borrower();
+
+        temp_choice_model.updateGraph(parseFloat(val_m1), parseFloat(val_m2), parseFloat(val_r));
+
+        const current_status = this.math_model.check_lender_borrower();
+
+        if (current_status != prev) { // Статус изменился, перемещаем чемодан
+            this.move_suitcase(current_status);
+        } else { // Статус не изменился, чемодан подпрыгивает
+            this.jump_suitcase();
+        }
+
+    }
+
 }
 
 var temp_choice_model;
@@ -237,46 +344,11 @@ document.getElementById('start').onclick = function () {
 
     // Создаем объект Model_in_browser один раз
     temp_choice_model = new Model_in_browser(canvas, text, imported1, imported2, imported3 / 100);
+    temp_choice_model.updateVal();
 };
 
-function updateVal() {
-    var val_m1 = document.getElementById("FUNCM1").value;
-    var val_m2 = document.getElementById("FUNCM2").value;
-    var val_r = document.getElementById("FUNCR").value / 100;
-
-    // Собираем LaTeX строку с обновленным значением
-    var latex_1 = `\\begin{cases}
-    \\max_{c1, c2 \\geq 0} ln(c_{1}) + 2 ln(c_{2})\\\\
-    s.t. (1+${val_r})c_{1} + c_{2} = (1+${val_r})${val_m1} + ${val_m2}
-    \\end{cases}`;
-
-    var latex_2 = `\\begin{cases}
-    c_2 = 2c_1(1+r)\\\\
-    (1+r)c_{1} + c_{2} = (1+r)m_{1} + m_{2}
-    \\end{cases}`;
-
-    const c1_star = ((1 + val_r) * val_m1 + val_m2) / (3 * (1 + val_r));
-    const c2_star = (2 / 3) * ((1 + val_r) * val_m1 + val_m2);
-
-    var latex_3 = `\\begin{cases}
-    c_1^* = \\frac{(1+r)m_1 + m_2}{3(1+r)} = \\frac{(1+${val_r})${val_m1} + ${val_m2}}{3(1+${val_r})} = ${c1_star.toFixed(2)}\\\\
-    c_2^* = \\frac{2}{3} ((1+r)m_{1} + m_{2}) = \\frac{2}{3} ((1+${val_r})${val_m1} + ${val_m2}) = ${c2_star.toFixed(2)}
-    \\end{cases}`;
-
-    // Обновляем содержимое span с помощью LaTeX строки
-    document.getElementById("figure_1").innerHTML = latex_1;
-    document.getElementById("figure_2").innerHTML = latex_2;
-    document.getElementById("figure_3").innerHTML = latex_3;
-
-    // Запускаем MathJax для перекомпиляции
-    MathJax.typesetPromise();
-
-    // Обновляем график
-    temp_choice_model.updateGraph(parseFloat(val_m1), parseFloat(val_m2), parseFloat(val_r));
-}
-
 [sliderM1, sliderM2, sliderR].forEach(slider => {
-    slider.addEventListener("input", updateVal);
+    slider.addEventListener("mouseup", () => { // Вызываем updateVal только после того, как отпустили ползунок 
+        temp_choice_model.updateVal();
+    });
 });
-
-
