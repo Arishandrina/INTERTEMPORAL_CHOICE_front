@@ -1,94 +1,187 @@
-.страница3
-{
-position:absolute;
-background-color:#ffffff;
-height:918px;
-width:868px;
-padding:0px;
+.страница3 {
+    position: absolute;
+    background-color: #ffffff;
+    height: 918px;
+    width: 868px;
+    padding: 0px;
+    left: 250px;
 }
-.button
-{
-background-color:#ffb762;
-height:61px;
-width:247px;
-left:298px;
-top:45px;
-position:absolute;
+
+.button {
+    background-color: #ffb762;
+    height: 61px;
+    width: 247px;
+    left: 298px;
+    top: 45px;
+    position: absolute;
+    border-radius: 7px;
 }
-.игра
-{
-color:#000000;
-text-align:center;
-vertical-align:text-middle;
-font-size:30px;
-font-family:Istok Web;
-left:363px;
-top:63px;
-width:117px;
-height:25px;
-position:absolute;
-line-height:auto;
-border-style:hidden;
-outline:none;
+
+.игра {
+    color: #000000;
+    text-align: center;
+    vertical-align: text-middle;
+    font-size: 30px;
+    font-family: Istok Web;
+    left: 363px;
+    top: 63px;
+    width: 117px;
+    height: 25px;
+    position: absolute;
+    line-height: auto;
+    border-style: hidden;
+    outline: none;
 }
-.button2
-{
-background-color:#fef3e5;
-height:362px;
-width:368px;
-top:139px;
-left:238px;
-position:absolute;
+
+.scores {
+    background-color: #fef3e5;
+    height: 44px;
+    width: 52px;
+    top: 40px;
+    left: 748px;
+    position: absolute;
+    border-radius: 7px;
 }
-.button3
-{
-background-color:#fef3e5;
-height:44px;
-width:52px;
-top:40px;
-left:748px;
-position:absolute;
+
+.question {
+    background-color: #fef3e5;
+    height: 200px;
+    width: 605px;
+    top: 133px;
+    left: 119px;
+    position: absolute;
+    font-size: 24px;
+    font-family: Georgia, "Times New Roman";
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1.5;
+    border-radius: 7px;
 }
-.button4
-{
-background-color:#ffb762;
-height:116px;
-width:605px;
-top:533px;
-left:119px;
-position:absolute;
+
+.очки {
+    color: #000000;
+    text-align: center;
+    vertical-align: text-middle;
+    font-size: 16px;
+    font-family: ITF Devanagari;
+    left: 650px;
+    top: 50px;
+    width: 110px;
+    height: 25px;
+    position: absolute;
+    line-height: auto;
+    border-style: hidden;
+    outline: none;
 }
-.очки
-{
-color:#000000;
-text-align:center;
-vertical-align:text-middle;
-font-size:16px;
-font-family:ITF Devanagari;
-left:650px;
-top:50px;
-width:110px;
-height:25px;
-position:absolute;
-line-height:auto;
-border-style:hidden;
-outline:none;
+
+.lend {
+    background-color: #d2f7ff;
+    height: 106px;
+    width: 170px;
+    top: 383px;
+    left: 205px;
+    position: absolute;
+    font-size: 20px;
+    font-family: Georgia, "Times New Roman";
+    border-radius: 7px;
 }
-.button5
-{
-background-color:#d2f7ff;
-height:106px;
-width:149px;
-top:683px;
-left:238px;
-position:absolute;
+
+.borr {
+    background-color: #d2f7ff;
+    height: 106px;
+    width: 170px;
+    top: 383px;
+    left: 455px;
+    position: absolute;
+    font-size: 20px;
+    font-family: Georgia, "Times New Roman";
+    border-radius: 7px;
 }
-.button6
-{
-background-color:#d2f7ff;
-height:106px;
-width:149px;
-top:683px;
-left:457px;
-position:absolute;
+
+.yes {
+    background-color: #d2f7ff;
+    height: 106px;
+    width: 170px;
+    top: 550px;
+    left: 205px;
+    position: absolute;
+    font-size: 20px;
+    font-family: Georgia, "Times New Roman";
+    border-radius: 7px;
 }
+
+.no {
+    background-color: #d2f7ff;
+    height: 106px;
+    width: 170px;
+    top: 550px;
+    left: 455px;
+    position: absolute;
+    font-size: 20px;
+    font-family: Georgia, "Times New Roman";
+    border-radius: 7px;
+}
+
+.check {
+    background-color: #ffb762;
+    height: 70px;
+    width: 170px;
+    top: 700px;
+    left: 315px;
+    position: absolute;
+    font-size: 20px;
+    font-family: Georgia, "Times New Roman";
+    font-weight: 700;
+    border-radius: 7px;
+}
+
+
+.arrow {
+    cursor: pointer;
+    position: relative;
+    width: 70px;
+    height: 40px;
+    margin: 20px;
+    top: 696px;
+    left: 670px;
+}
+
+.arrow div {
+    position: relative;
+    top: 20px;
+    width: 70px;
+    height: 10px;
+    background-color: #337AB7;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    left: 0;
+    display: block;
+}
+
+.arrow div::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 8px;
+    top: -11px;
+    right: -8px;
+    background-color: #337AB7;
+    transform: rotate(45deg);
+}
+
+.arrow div::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 8px;
+    top: 11px;
+    right: -8px;
+    background-color: #337AB7;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    transform: rotate(-45deg);
+}
+
+button:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
