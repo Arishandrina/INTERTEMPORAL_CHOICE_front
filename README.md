@@ -87,3 +87,7 @@ c1 + c2 / (1 + r) = m1 + m2 / (1 + r) - это уравнение бюджетн
 ## Макет
 Макет для первой страницы в [Figma](to be continued)
 Макет для второй страницы в [Figma](to be continued)
+
+
+## Web - страница
+https://arishandrina.github.io/INTERTEMPORAL_CHOICE_front/
