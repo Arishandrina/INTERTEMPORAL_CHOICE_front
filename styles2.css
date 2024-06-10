@@ -2,52 +2,54 @@
     display: none;
     position: absolute;
     background-color: #ffffff;
-    height: 1744px;
-    width: 1896px;
+    height: 1044px;
+    width: 1465px;
     padding: 0px;
 }
 
-
 .slidecontainer {
-    width: 100%; /* Width of the outside container */
+    width: 100%; 
 }
 
-/* The slider itself */
 .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
+    -webkit-appearance: none; 
     appearance: none;
-    width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
+    width: 100%; 
+    height: 25px; 
     border-radius: 50%; 
-    background: #fff3e6; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    background: #fff3e6; 
+    outline: none; 
+    opacity: 0.7; 
+    -webkit-transition: .2s; 
     transition: opacity .2s;
 }
 
-/* Mouse-over effects */
 .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
+    opacity: 1; 
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
 .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    -webkit-appearance: none; 
     appearance: none;
-    width: 25px; /* Set a specific slider handle width */
+    width: 25px; 
     border-radius: 50%; 
-    height: 25px; /* Slider handle height */
-    background: #000000; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    height: 25px; 
+    background: #000000; 
+    cursor: pointer;
+    
 }
 
 .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
+    width: 25px; 
+    height: 25px; 
     border-radius: 50%; 
-    background: #000000; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    background: #000000; 
+    cursor: pointer; 
+}
+
+button:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
 }
 
 .решение {
@@ -60,122 +62,111 @@
     border-style: hidden;
     outline: none;
     left: 900px;
-    top: 26px;
+    top: 2px;
     position: absolute;
     width: 117px;
+    font-size: 18px;
 }
 
 .canvas {
     background-color: #fef3e5;
     height: 400px;
     width: 400px;
-    top: 49px;
+    top: 29px;
     left: 29px;
     position: absolute;
 }
 
 .text {
     background-color: #fef3e5;
-    height: 550px;
+    height: 559px;
     width: 510px;
-    top: 57px;
+    top: 27px;
     left: 900px;
     position: absolute;
+    line-height: 0.95;
+    border-radius: 8px;
 }
+
+.why_status {
+    background-color: #fef3e5;
+    height: 330px;
+    width: 418px;
+    top: 254px;
+    left: 460px;
+    position: absolute;
+    text-align: center;
+    font-size: 17px;
+    line-height: 2;
+    border-radius: 8px;
+    word-break: break-word; 
+}
+
+.animated-line {
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out; 
+    display: block;
+ }
+ 
 
 .button3_sec {
     display: flex;  
     background-color: #ffb762;
     height: 38px;
     width: 319px;
-    top: 481px;
+    top: 461px;
     left: 69px;
     position: absolute;
-    justify-content: center; /* Выравнивае по ширине */
-    align-items: center; /* Выравнивае по высоте */
+    justify-content: center; 
+    align-items: center; 
     font-size: 20px;    
-}
-
-.button4_sec {
-    background-color: #ffb762;
-    height: 38px;
-    width: 53px;
-    top: 120px;
-    left: 453px;
-    position: absolute;
+    border-radius: 8px;
 }
 
 .m1_sec {
-    color: #000000;
-    text-align: center;
-    vertical-align: text-middle;
-    font-size: 15px;
-    font-family: Istok Web;
-    left: 421px;
-    top: 127px;
-    width: 117px;
-    height: 25px;
-    position: absolute;
-    line-height: auto;
-    border-style: hidden;
-    outline: none;
-}
-
-.button5_sec {
+    display: flex;  
     background-color: #ffb762;
     height: 38px;
     width: 53px;
-    top: 221px;
+    top: 50px;
     left: 453px;
+    justify-content: center; 
+    align-items: center; 
     position: absolute;
-}
-
-.button6_sec {
-    background-color: #ffb762;
-    height: 38px;
-    width: 53px;
-    top: 322px;
-    left: 453px;
-    position: absolute;
+    border-radius: 8px;
 }
 
 .m2_sec {
-    color: #000000;
-    text-align: center;
-    vertical-align: text-middle;
-    font-size: 15px;
-    font-family: Istok Web;
-    left: 421px;
-    top: 227px;
-    width: 117px;
-    height: 25px;
+    display: flex;  
+    background-color: #ffb762;
+    height: 38px;
+    width: 53px;
+    top: 110px;
+    left: 453px;
+    justify-content: center; 
+    align-items: center; 
     position: absolute;
-    line-height: auto;
-    border-style: hidden;
-    outline: none;
+    border-radius: 8px;
 }
 
 .r_sec {
-    color: #000000;
-    text-align: center;
-    vertical-align: text-middle;
-    font-size: 15px;
-    font-family: Istok Web;
-    left: 421px;
-    top: 328px;
-    width: 117px;
-    height: 25px;
+    display: flex;  
+    background-color: #ffb762;
+    height: 38px;
+    width: 53px;
+    top: 170px;
+    left: 453px;
+    justify-content: center; 
+    align-items: center; 
     position: absolute;
-    line-height: auto;
-    border-style: hidden;
-    outline: none;
+    border-radius: 8px;
 }
 
 .button7_sec {
     background-color: #fff3e6;
     height: 38px;
     width: 303px;
-    top: 120px;
+    top: 50px;
     left: 525px;
     border-radius: 8px;
     position: absolute;
@@ -185,7 +176,7 @@
     background-color: #fff3e6;
     height: 38px;
     width: 303px;
-    top: 221px;
+    top: 110px;
     left: 525px;
     border-radius: 8px;
     position: absolute;
@@ -195,7 +186,7 @@
     background-color: #fff3e6;
     height: 38px;
     width: 303px;
-    top: 322px;
+    top: 170px;
     left: 525px;
     border-radius: 8px;
     position: absolute;
@@ -205,25 +196,28 @@
     background-color: #ffb762;
     height: 68px;
     width: 319px;
-    top: 1608px;
-    left: 274px;
+    top: 900px;
+    left: 500px;
     position: absolute;
+    border-radius: 8px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .button11_sec {
     background-color: #e9fbff;
     height: 248px;
-    width: 1896px;
-    top: 614px;
+    width: 1465px;
+    top: 590px;
     left: 0px;
     position: absolute;
 }
 
 .фото3 {
-    height: 52px;
-    width: 319px;
+    height: 182px;
+    width: 185px;
     left: 274px;
-    top: 1614px;
+    top: 655px;
     position: absolute;
 }
 
@@ -231,7 +225,7 @@
     height: 209px;
     width: 124px;
     left: 29px;
-    top: 650px;
+    top: 626px;
     position: absolute;
 }
 
@@ -239,14 +233,13 @@
     height: 243px;
     width: 320px;
     left: 954px;
-    top: 615px;
+    top: 591px;
     position: absolute;
 }
 
 
 .current-value {
     position: absolute !important;
-
     appearance: none;
     width: 100%;
     height: 30px;
@@ -257,3 +250,5 @@
     transition: opacity .2s;
 
 }
+
+
