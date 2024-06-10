@@ -30,47 +30,45 @@
         <button type="submit" id='start' class='start'>Начать</button>
     </div>
     <div id='страница2' class='страница2'>
-        <div id='решение' class='решение'>
-            Решение:</div>
-        <button id='button_sec' class='button_sec'>
-        </button>
+        <div id='решение' class='решение'> <b>Решение: </b></div>
+
         <span id='text' class='text'>
             <span> $$\begin{cases}
-             \max_{c1, c2 \geq 0} U(c_{1}, c_{2})\\
-             s.t. (1+r)c_{1} + c_{2} = (1+r)m_{1} + m_{2}
-            \end{cases}$$
+                \max_{c1, c2 \geq 0} U(c_{1}, c_{2})\\
+                s.t. (1+r)c_{1} + c_{2} = (1+r)m_{1} + m_{2}
+                \end{cases}$$
             </span>
-            <span id="figure_1">
-                    <!-- Сюда будем вставлять LateX -->
-            </span>
+            <span id="figure_1" ></span>
             <p align="center">Посчитаем предельную норму замещения MRS для функции (1)</p>
-            <span> $$|MRS_{c_1,c_2}| = \frac{U'_{c_1}(c_1,c_2)}{U'_{c_2}(c_1,c_2)} = \frac{1}{c_1} : \frac{2}{c_2} = \frac{c_2}{2c_1}$$</span>
+            <span> $$|MRS_{c_1,c_2}| = \frac{U'_{c_1}(c_1,c_2)}{U'_{c_2}(c_1,c_2)} = \frac{1}{c_1} : \frac{2}{c_2} =
+                \frac{c_2}{2c_1}$$</span>
             <p align="center">Тангенс угла наклона бюджетной линии: </p>
-            <span>$$\frac{m_2 + m_1 (1 + r)}{m_1 + \frac{m_2}{1+r}} = \frac{(1+r)(m_1 + \frac{m_2}{1+r})}{m_1 + \frac{m_2}{1+r}} = 1 + r$$</span>
-            <span> $$|MRS_{c_1,c_2}| = 1 + r  \Rightarrow  \frac{c_2}{2c_1} = 1 + r  \Rightarrow  c_2 = 2c_1(1+r)$$</span>
+            <span>$$\frac{m_2 + m_1 (1 + r)}{m_1 + \frac{m_2}{1+r}} = \frac{(1+r)(m_1 + \frac{m_2}{1+r})}{m_1 +
+                \frac{m_2}{1+r}} = 1 + r$$</span>
+            <span> $$|MRS_{c_1,c_2}| = 1 + r \Rightarrow \frac{c_2}{2c_1} = 1 + r \Rightarrow c_2 = 2c_1(1+r)$$</span>
             <span>$$\text{Подставим значение } c_{2} \text{ в исходную систему:}$$</span>
-            <span id="figure_2"> </span>        
-            <span id="figure_3"> </span> 
-            
+            <span id="figure_2"> </span>
+            <span id="figure_3"> </span>
+
         </span>
-        <p id='button3_sec' class='button3_sec'>
-        </p>
-        <button id='button4_sec' class='button4_sec'>
-        </button>
-        <div id='m1_sec' class='m1_sec'>
-            m1</div>
-        <button id='button5_sec' class='button5_sec'>
-        </button>
-        <button id='button6_sec' class='button6_sec'>
-        </button>
-        <div id='m2_sec' class='m2_sec'>
-            m2</div>
-        <div id='r_sec' class='r_sec'>
-            r</div>
+
+        <div id="why_status" class="why_status">
+            <strong id="figure_4" class="animated-line" style="font-size: 19px;"></strong>
+            <span id="figure_5" class="animated-line"></span>
+            <span id="figure_6" class="animated-line"></span>
+            <span id="figure_7" class="animated-line"></span>
+            <span id="figure_8" class="animated-line"></span>
+            <span id="figure_9" class="animated-line"></span>
+            <span id="figure_10" class="animated-line"></span>
+        </div>
+
+        <p id='button3_sec' class='button3_sec'></p>
+        <div id='m1_sec' class='m1_sec'> m1 </div>
+        <div id='m2_sec' class='m2_sec'> m2 </div>
+        <div id='r_sec' class='r_sec'> r </div>
         <button id='button7_sec' class='button7_sec'>
             <div class="slidecontainer">
-                <input type="range" min="1" max="450" value="imported1" class="slider"
-                    id="FUNCM1">
+                <input type="range" min="1" max="450" value="imported1" class="slider" id="FUNCM1">
                 <p>Value: <span id="imported1"></span></p>
                 <script>
                     // Устанавливаем начальное значение ползунка m2Value
@@ -91,8 +89,7 @@
 
         <button id='button8_sec' class='button8_sec'>
             <div class="slidecontainer">
-                <input type="range" min="1" max="450" value="imported2" class="slider"
-                    id="FUNCM2">
+                <input type="range" min="1" max="450" value="imported2" class="slider" id="FUNCM2">
                 <p>Value: <span id="imported2"></span></p>
                 <script>
                     // Устанавливаем начальное значение ползунка m2Value
@@ -115,8 +112,7 @@
 
         <button id='button9_sec' class='button9_sec'>
             <div class="slidecontainer">
-                <input type="range" min="1" max="100" value="imported3" class="slider"
-                    id="FUNCR">
+                <input type="range" min="1" max="100" value="imported3" class="slider" id="FUNCR">
                 <p>Value: <span id="imported3"></span></p>
                 <script>
                     // Устанавливаем начальное значение ползунка m2Value
@@ -135,16 +131,15 @@
             </div>
         </button>
 
-        <button id='Начатьигру' class='Начатьигру'> <a href="index3.html">Начать игру</a> </button>
+        <button id='Начатьигру' class='Начатьигру'> Начать игру </button>
 
-        <button id='button11_sec' class='button11_sec'>
-        </button>
+        <div id='button11_sec' class='button11_sec'></div>
 
         <canvas id='canvas' width="400" height="400" class="canvas"></canvas>
 
-        <img id='фото2' class='фото2' src='Девочка.png'/></img> <!-- Фото девочки -->
-        <img id='фото1' class='фото1' src='Банк.png'/></img> <!-- Фото банка -->
-        <img id='фото3' class='фото3' src='Чемодан.png'/></img> <!-- Фото банка -->
+        <img id='фото2' class='фото2' src='Девочка.png' /></img> <!-- Фото девочки -->
+        <img id='фото1' class='фото1' src='Банк.png' /></img> <!-- Фото банка -->
+        <img id='фото3' class='фото3' src='Чемодан.png' /></img> <!-- Фото чемодана -->
     </div>
 
 
