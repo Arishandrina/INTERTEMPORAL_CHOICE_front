@@ -1,22 +1,36 @@
 <!doctype html>
 <html>
+
 <head>
     <title>Модель межвременного выбора</title>
     <meta charset='utf-8' />
-    <script type="module" src="model_in_browser.js"></script>
+    <script type="module" src="game_last_page.js"></script>
     <link rel="stylesheet" href="styles3.css">
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
 </head>
 
-<body> 
-    <div id="страница3" class="страница3">
-        <button id='button' class='button'></button>
-        <button id='button2' class='button2'></button>
-        <button id='button3' class='button3'></button>
-        <button id='button4' class='button4'></button>
-        <div id='очки' class='очки'>Очки:</div>
-        <button id='button5' class='button5'></button>
-        <button id='button6' class='button6'></button>
+<body>
+    <div id='страница3' class='страница3'>
+        <button id='button' class='button'>
+        </button>
+        <div id='игра' class='игра'>
+            Игра</div>
+        <button id='scores' class='scores'> 
+        </button>
+        <span id='question' class='question'></span>
+        <div id='очки' class='очки'>
+            Очки:</div>
+        <button id='lend' class='lend'> Кредитор </button>
+        <button id='borr' class='borr'> Заемщик </button>
+        <button id='yes' class='yes'> Может </button>
+        <button id='no' class='no'> Не может </button>
+        <button id='check' class='check'> Проверить</button>
+        <div id = "arrow" class="arrow">
+            <div></div>
+        </div>
     </div>
+    <script src="game_last_page.js"></script>
+
 </body>
+
 </html>
