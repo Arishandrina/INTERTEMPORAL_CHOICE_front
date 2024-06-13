@@ -15,10 +15,10 @@ export class Math_model{
 
     check_lender_borrower(){ // Проверяем, являяется ли на данном этапе потребитель кредитором или заемщиком 
         this.find_optim_c();
-        if (this.c1 < this.m_1 && this.c2 > this.m_2){
-            return 'lender';
-        } else {
-            return 'borrower';
+        if (this.c1 < this.m_1 && this.c2 > this.m_2){ // если оптимальная точка находится выше точки доходов в двух периодах (запасов агента) 
+            return 'lender'; // то он кредитор
+        } else { 
+            return 'borrower'; //иначе заемщик
         }
     }
 }
