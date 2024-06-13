@@ -16,8 +16,6 @@
 
 <body>
     <div id='страница1' class='страница1'>
-        <div id='введитеданные' class='введитеданные'>
-            Введите следующие параметры для построения модели:</div>
         <div id='доходв1периоде' class='доходв1периоде'>
             Доход в 1 периоде</div>
         <div id='доходво2периоде' class='доходво2периоде'>
@@ -27,8 +25,48 @@
         <input type="number" id="m1_first" placeholder="100" class="button">
         <input type="number" id="m2_first" placeholder="100" class="button2">
         <input type="number" id="r_first" placeholder="100" class="button3">
-        <button type="submit" id='start' class='start'>Начать</button>
+        <button type="submit" id='start' class='start'><strong>Начать</strong></button>
+        <div id="beginning">
+            <h2>Модель межвременного выбора</h2>
+
+            <p>В жизни мы постоянно сталкиваемся с выбором: купить новый телефон сегодня или отложить деньги на
+                потом? Съесть пирожное сейчас или придерживаться диеты ради здоровья в будущем? Все эти решения
+                объединяет концепция <strong>межвременного выбора</strong> – распределения наших ресурсов (денег,
+                времени, энергии) между потреблением сегодня и в будущем. </p>
+
+            <p> Этот сайт позволит познакомиться с данной моделью. Вы сможете:</p>
+
+            <ol>
+                <li><strong>Увидеть бюджет во времени:</strong>
+                    <ul>
+                        <li>Введите доход в текущем и следующем периодах</li>
+                        <li>Укажите ставку процента – она покажет, как деньги могут "работать" и приносить доход в
+                            будущем</li>
+                        <li>На основе этих данных будет построен <strong>межвременной бюджет</strong> – график,
+                            отображающий доступные комбинации потребления сегодня и завтра</li>
+                    </ul>
+                </li>
+                <li> <strong>Проанализировать, как решения сейчас влияют на будущее:</strong>
+                    <ul>
+                        <li>Посмотрите, как изменяется бюджет при изменении ставки процента или дохода</li>
+                        <li>Поймите, как найти баланс между сиюминутными желаниями и долгосрочными целями</li>
+                    </ul>
+                </li>
+                <li><strong>Сыграть в игру</strong>
+                    <ul>
+                        <li>На последней странице сайта вас ждет игра из 10 вопросов, которая поможет закрепить ваши
+                            знания о межвременном выборе на практике </li>
+                        <li> В ней вам предстоит управлять бюджетом и научиться принимать грамотные решения о
+                            потреблении и сбережениях в условиях ограниченных ресурсов и изменчивой экономической
+                            ситуации</li>
+                    </ul>
+                </li>
+            </ol>
+            <br>
+            <p> <strong>Введите данные ниже для построения модели:</strong></p>
+        </div>
     </div>
+
     <div id='страница2' class='страница2'>
         <div id='решение' class='решение'> <b>Решение: </b></div>
 
@@ -38,7 +76,7 @@
                 s.t. (1+r)c_{1} + c_{2} = (1+r)m_{1} + m_{2}
                 \end{cases}$$
             </span>
-            <span id="figure_1" ></span>
+            <span id="figure_1"></span>
             <p align="center">Посчитаем предельную норму замещения MRS для функции (1)</p>
             <span> $$|MRS_{c_1,c_2}| = \frac{U'_{c_1}(c_1,c_2)}{U'_{c_2}(c_1,c_2)} = \frac{1}{c_1} : \frac{2}{c_2} =
                 \frac{c_2}{2c_1}$$</span>
@@ -75,7 +113,7 @@
                     var sliderM1 = document.getElementById("FUNCM1");
                     sliderM1.value = imported1;
 
-                    // Update displayed value initially to match the slider
+                    // Обновляем отображаемое значение, чтобы оно соответствовало ползунку
                     var outputM1 = document.getElementById("imported1");
                     outputM1.innerHTML = sliderM1.value;
 
@@ -92,15 +130,12 @@
                 <input type="range" min="1" max="450" value="imported2" class="slider" id="FUNCM2">
                 <p>Value: <span id="imported2"></span></p>
                 <script>
-                    // Устанавливаем начальное значение ползунка m2Value
                     var sliderM2 = document.getElementById("FUNCM2");
                     sliderM2.value = imported2;
 
-                    // Обновляем отображаемое значение, чтобы оно соответствовало ползунку
                     var outputM2 = document.getElementById("imported2");
                     outputM2.innerHTML = imported2;
 
-                    // Прослушиватель событий для обновления отображаемого значения
                     sliderM2.oninput = function () {
                         outputM2.innerHTML = this.value;
                         updateVal();
@@ -115,17 +150,15 @@
                 <input type="range" min="1" max="100" value="imported3" class="slider" id="FUNCR">
                 <p>Value: <span id="imported3"></span></p>
                 <script>
-                    // Устанавливаем начальное значение ползунка m2Value
                     var sliderR = document.getElementById("FUNCR");
                     sliderR.value = imported3;
 
-                    // Update displayed value initially to match the slider
                     var outputR = document.getElementById("imported3");
                     outputR.innerHTML = sliderR.value;
 
                     sliderR.oninput = function () {
                         outputR.innerHTML = this.value;
-                        updateVal(); // Также обновляем значение val
+                        updateVal(); 
                     }
                 </script>
             </div>
@@ -137,9 +170,9 @@
 
         <canvas id='canvas' width="400" height="400" class="canvas"></canvas>
 
-        <img id='фото2' class='фото2' src='Девочка.png' /></img> <!-- Фото девочки -->
-        <img id='фото1' class='фото1' src='Банк.png' /></img> <!-- Фото банка -->
-        <img id='фото3' class='фото3' src='Чемодан.png' /></img> <!-- Фото чемодана -->
+        <img id='фото2' class='фото2' src='Девочка.png' /></img> 
+        <img id='фото1' class='фото1' src='Банк.png' /></img> 
+        <img id='фото3' class='фото3' src='Чемодан.png' /></img> 
     </div>
 
 
