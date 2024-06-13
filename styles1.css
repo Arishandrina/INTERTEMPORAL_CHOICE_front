@@ -2,34 +2,25 @@
     position: absolute;
     background-color: #ffffff;
     height: 238px;
-    width: 868px;
+    width: 100%;
     padding: 0px;
+    font-size: 17px;
 }
 
-.введитеданные {
-    color: #000000;
-    text-align: center;
-    vertical-align: text-middle;
-    font-size: 16px;
+#beginning {
     font-family: ITF Devanagari;
-    line-height: auto;
-    border-style: hidden;
-    outline: none;
-    left: 35px;
-    top: 31px;
-    position: absolute;
-    width: 488px;
+    line-height: 1.9;
 }
 
 .доходв1периоде {
     color: #000000;
     text-align: center;
     vertical-align: text-middle;
-    font-size: 14px;
+    font-size: 17px;
     font-family: ITF Devanagari;
     left: 11px;
-    top: 107px;
-    width: 117px;
+    top: 687px;
+    width: 140px;
     height: 25px;
     position: absolute;
     line-height: auto;
@@ -41,11 +32,11 @@
     color: #000000;
     text-align: center;
     vertical-align: text-middle;
-    font-size: 14px;
+    font-size: 17px;
     font-family: ITF Devanagari;
-    left: 225px;
-    top: 107px;
-    width: 130px;
+    left: 245px;
+    top: 687px;
+    width: 140px;
     height: 25px;
     position: absolute;
     line-height: auto;
@@ -57,11 +48,11 @@
     color: #000000;
     text-align: center;
     vertical-align: text-middle;
-    font-size: 14px;
+    font-size: 17px;
     font-family: ITF Devanagari;
-    left: 452px;
-    top: 107px;
-    width: 110px;
+    left: 492px;
+    top: 687px;
+    width: 140px;
     height: 25px;
     position: absolute;
     line-height: auto;
@@ -73,8 +64,8 @@
     background-color: #d2f7ff;
     height: 31px;
     width: 47px;
-    top: 104px;
-    left: 138px;
+    top: 684px;
+    left: 158px;
     position: absolute;
     border-radius: 7px;
 }
@@ -83,8 +74,8 @@
     background-color: #d2f7ff;
     height: 31px;
     width: 47px;
-    top: 104px;
-    left: 363px;
+    top: 684px;
+    left: 400px;
     position: absolute;
     border-radius: 7px;
 }
@@ -93,8 +84,8 @@
     background-color: #d2f7ff;
     height: 31px;
     width: 47px;
-    top: 104px;
-    left: 571px;
+    top: 684px;
+    left: 630px;
     position: absolute;
     border-radius: 7px;
 }
@@ -103,10 +94,11 @@
     background-color: #ffb762;
     height: 38px;
     width: 133px;
-    top: 100px;
-    left: 685px;
+    top: 680px;
+    left: 745px;
     position: absolute;
     cursor: pointer;
     border-radius: 7px;
+    font-family: ITF Devanagari;
+    font-size: 17px;
 }
-
