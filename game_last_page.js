@@ -200,8 +200,9 @@ class Game {
         this.no_button.addEventListener('click', () => this.select_yes_no('Не может'));
         this.check_button.addEventListener('click', () => this.check_answer());
         this.arrow.addEventListener('click', () => {
-            if (this.curr_question < Object.keys(this.questions).length) {
-                this.next_question();
+            if (this.curr_question < Object.keys(this.questions).length) { // если текущий вопрос по счету еще не достиг последнего вопроса 
+                //(то есть по счету было не больше 10 вопросов)
+                this.next_question(); // то переходим к следующему вопросу
             }
         });
 
@@ -327,16 +328,18 @@ class Game {
         /*
         Переходим к следующему вопросу 
         */
-        if (this.curr_question >= 10) {
-            this.game_finished();
+        if (this.curr_question >= 10) { // если ученик ответил на 10 вопросов
+            this.game_finished(); // то заканчиваем игру, больше он не может увеличить количество очков
         } else {
-            ++this.curr_question;
+            ++this.curr_question; //иначе переходим к следующему вопросу, увеличиваем счетчик, на какое количество вопросов уже ответили
 
-            this.show_question();
-            this.update_button_styles();
-            this.enable_buttons();
-            this.selected_status = null;
-            this.selected_yes_no = null;
+            this.show_question(); // показываем новый вопрос
+            this.update_button_styles(); // обновляем стили кнопок
+            this.enable_buttons(); // делаем их снова активными, теперь ученик снова может выбирать варианты ответа на следующий вопрос
+            this.selected_status = null; // с новым вопросом пока нет выбранного варианта о статусе
+            this.selected_yes_no = null; // с новым вопросом пока нет выбранного варианта о возможности изменить статус  
+
+            //Все кнопки теперь цвета по умолчанию
             this.lend_button.style.background = '';
             this.borr_button.style.background = '';
             this.yes_button.style.background = '';
@@ -346,13 +349,16 @@ class Game {
     }
 
     game_finished() {
-        if (this.scores >= 8) {
+        /*
+        В зависимости от набранного количества очков, выводятся различные сообщения о текущем уровне подготовки
+        */
+        if (this.scores >= 16) {
             alert("Игра окончена! Ваши очки: " + this.scores + '\n' + "Твои знания на очень высоком уровне! Ты разобрался с моделью на 5 из 5");
-        } else if (this.scores >= 6) {
+        } else if (this.scores >= 12) {
             alert("Игра окончена! Ваши очки: " + this.scores + '\n' + "У тебя хорошие знания модели межвременного выбора, но еще есть, куда расти. Текущая оценка: 4 из 5");
-        } else if (this.scores >= 4) {
+        } else if (this.scores >= 8) {
             alert("Игра окончена! Ваши очки: " + this.scores + '\n' + "Ты уже обладаешь некоторыми знаниями в данной модели, но еще много материала для освоения впереди. Текущая оценка: 3 из 5");
-        } else if (this.scores >= 2) {
+        } else if (this.scores >= 4) {
             alert("Игра окончена! Ваши очки: " + this.scores + '\n' + "Сейчас твои познания в модели межвременного выбора малы, стоит больше времени уделить ознакомлению с материалом. Текущая оценка: 2 из 5");
         } else {
             alert("Игра окончена! Ваши очки: " + this.scores + '\n' + "Сейчас показатели очень низкие, стоит больше времени уделить изучению модели");
@@ -360,21 +366,29 @@ class Game {
     }
 
     disable_buttons() {
+        /*
+        Делает кнопки неактивными, на них больше нельзя нажимать, если ученик нажал на проверить и еще не переходит к следующему вопросу
+        */
         this.lend_button.disabled = true;
         this.borr_button.disabled = true;
         this.yes_button.disabled = true;
         this.no_button.disabled = true;
+        this.check_button.disabled = true;
     }
 
     enable_buttons() {
+        /*
+        Как только ученик перешел к следующему вопросу, все кнопки с вариантами ответов становятся активными
+        */
         this.lend_button.disabled = false;
         this.borr_button.disabled = false;
         this.yes_button.disabled = false;
         this.no_button.disabled = false;
+        this.check_button.disabled = false;
     }
 }
 
-var game;
-document.addEventListener('DOMContentLoaded', () => {
-    game = new Game();
+var game; // объявляем переменную 'game', но не присваиваем ей значение сразу
+document.addEventListener('DOMContentLoaded', () => { // 'DOMContentLoaded' срабатывает, когда весь HTML загружен и обработан браузером
+    game = new Game(); // создаем новый экземпляр объекта 'Game', с помощью конструктора и присваиваем его переменной 'game'
 });
