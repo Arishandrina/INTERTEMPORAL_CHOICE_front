@@ -251,7 +251,7 @@ export class Model_in_browser {
         */
             const status = this.math_model.check_lender_borrower(); // проверяем текущий статус в модели this.math_model
             if (status == 'borrower') {
-                document.getElementById("button3_sec").innerHTML = "ЗАЕМЩИК";
+                document.getElementById("button3_sec").innerHTML = "ЗАЕМЩИК"; //выводим соответсвующий статус
             } else {
                 document.getElementById("button3_sec").innerHTML = "КРЕДИТОР";
             }
@@ -328,23 +328,26 @@ export class Model_in_browser {
         let direction = -1; // направление прыжка чемодана
 
         this.animation_id = setInterval(() => { // чемодан делает прыжок
-            this.suitcase_y += direction * 2; // 
-            this.suitcase.style.top = this.suitcase_y + 'px';
+            this.suitcase_y += direction * 2; // начинаем постепенно двигать чемодан по оси у
+            this.suitcase.style.top = this.suitcase_y + 'px'; // обновляем его позицию на странице
 
-            if (this.suitcase_y <= orig_y - 25) {
+            if (this.suitcase_y <= orig_y - 25) { // когда достигли ли мы верхней точки прыжка, меняем направление движения
                 direction = 1;
-            } else if (this.suitcase_y >= orig_y) {
-                clearInterval(this.animation_id);
-                this.suitcase_y = orig_y;
+            } else if (this.suitcase_y >= orig_y) { // когда чемодан вернулся в исходную точку
+                clearInterval(this.animation_id); //останавливаем анимацию
+                this.suitcase_y = orig_y; //фиксируем положение
             }
-        }, 15); //все длится 15 милисекунд
+        }, 15); //все длится 15 миллисекунд
     }
 
     updateVal() {
         /*
-
+        Функция обновляет график и текстовые элементы (решение и объяснение статуса) на странице в соответствии с новыми 
+        значениями параметров, выбранными пользователем
         */
-        var val_m1 = document.getElementById("FUNCM1").value;
+        
+        // Получаем значения все элемнтов
+        var val_m1 = document.getElementById("FUNCM1").value; 
         var val_m2 = document.getElementById("FUNCM2").value;
         var val_r = document.getElementById("FUNCR").value / 100;
 
@@ -359,7 +362,7 @@ export class Model_in_browser {
         (1+r)c_{1} + c_{2} = (1+r)m_{1} + m_{2}
         \\end{cases}`;
 
-        const c1_star = val_m1 / 3 + val_m2 / (3 * (1 + val_r));
+        const c1_star = val_m1 / 3 + val_m2 / (3 * (1 + val_r)); //считаем оптимальные значения потребления, где будет точка касания
         const c2_star = 2 * val_m1 / 3 + 2 * val_m1 * val_r / 3 + 2 * val_m2 / 3;
 
         var latex_3 = `\\begin{cases}
@@ -367,14 +370,14 @@ export class Model_in_browser {
         c_2^* = \\dfrac{2}{3} ((1+r)m_{1} + m_{2}) = \\dfrac{2}{3} ((1+${val_r})${val_m1} + ${val_m2}) = ${Math.round(c2_star)}
         \\end{cases}`;
 
-        // Обновляем график
-        const prev = this.math_model.check_lender_borrower();
+        const prev = this.math_model.check_lender_borrower(); //сохраняем предыдущий статус, чтобы сравнить с новым и понять, как двигаться чемодану
 
-        temp_choice_model.updateGraph(parseFloat(val_m1), parseFloat(val_m2), parseFloat(val_r));
+        temp_choice_model.updateGraph(parseFloat(val_m1), parseFloat(val_m2), parseFloat(val_r)); // обновляем график модели
 
-        // Обновляем current_status здесь
-        this.current_status = this.math_model.check_lender_borrower();
+        this.current_status = this.math_model.check_lender_borrower();  // обновляем текущий статус потребителя (кредитор/заемщик)
 
+        // Дальше будет формироваться текстовое объяснение статуса потребителя с помощью LaTeX
+        // Ниже строки, куда будут подставляться различные предложения в зависимости от статуса
         let status;
         var latex_4 = ``;
         var latex_5 = ``;
@@ -419,85 +422,77 @@ export class Model_in_browser {
         document.getElementById("figure_9").innerHTML = latex_9;
         document.getElementById("figure_10").innerHTML = latex_10;
 
+        MathJax.typesetPromise(); // запускаем MathJax для перекомпиляции
 
-        // Запускаем MathJax для перекомпиляции
-        MathJax.typesetPromise();
-
-        if (this.current_status != prev) { // Статус изменился, перемещаем чемодан
-            this.move_suitcase(this.current_status);
-        } else { // Статус не изменился, чемодан подпрыгивает
-            this.jump_suitcase();
+        if (this.current_status != prev) { // если статус изменился относительно предыдущего
+            this.move_suitcase(this.current_status); // то чемодан начинает ехать в противоположную сторону
+        } else { // статус не изменился
+            this.jump_suitcase(); // чемодан подпрыгивает
         }
-        MathJax.typesetPromise().then(() => {
-            animateTextLines("why_status"); // Анимируем текст
+        MathJax.typesetPromise().then(() => { // после завершения рендеринга формул MathJax запускаем анимацию текста с объяснением статуса 
+            animateTextLines("why_status"); // анимируем текст
         });
     }
-
 }
 
-var temp_choice_model;
-const canvas = document.getElementById('canvas'); // Получаем элемент холст по идентификатору
-const text = document.getElementById('text');
-const sliderM1 = document.getElementById("FUNCM1");
-const sliderM2 = document.getElementById("FUNCM2");
-const sliderR = document.getElementById("FUNCR");
+var temp_choice_model; // переменная для хранения экземпляра модели
+const canvas = document.getElementById('canvas'); // получаем элемент холст по идентификатору
+const text = document.getElementById('text'); // Текстовый элемент с решением системы для данной модели
+const sliderM1 = document.getElementById("FUNCM1"); // ползунок для дохода в первом периоде
+const sliderM2 = document.getElementById("FUNCM2"); // ползунок для дохода во втором периоде
+const sliderR = document.getElementById("FUNCR"); // ползунок для ставки процента
 
-document.getElementById('start').onclick = function () {
+document.getElementById('start').onclick = function () { // обработчик для клика на кнопку "Начать"
+    // Получаем значения из полей ввода на первой странице 
     var imported1 = parseFloat(document.getElementById('m1_first').value);
     var imported2 = parseFloat(document.getElementById('m2_first').value);
     var imported3 = parseFloat(document.getElementById('r_first').value);
 
-    // Передаем значение в ползунок
-    var sliderM1 = document.getElementById("FUNCM1");
-    sliderM1.value = imported1;
-
+    sliderM1.value = imported1;  // передаем значение в ползунок
     // Обновляем отображаемое значение ползунка
-    var outputM1 = document.getElementById("imported1");
-    outputM1.innerHTML = sliderM1.value;
+    var outputM1 = document.getElementById("imported1"); // получаем элемент
+    outputM1.innerHTML = sliderM1.value; // выводим текущее значение
 
-    var sliderM2 = document.getElementById("FUNCM2");
+    //Аналогично для других ползунков
     sliderM2.value = imported2;
-
     var outputM2 = document.getElementById("imported2");
     outputM2.innerHTML = sliderM2.value;
 
-    var sliderR = document.getElementById("FUNCR");
     sliderR.value = imported3;
-
     var outputR = document.getElementById("imported3");
     outputR.innerHTML = sliderR.value;
 
-    document.getElementById('страница1').hidden = true;
-    document.getElementById('страница2').style.display = "block";
+    document.getElementById('страница1').hidden = true; // скрываем всю первую страницу (все ее элементы)
+    document.getElementById('страница2').style.display = "block"; //отображаем вторую страницу
 
-    // Создаем объект Model_in_browser один раз
+    // Создаем объект Model_in_browser один раз и обновляем интерфейс 
     temp_choice_model = new Model_in_browser(canvas, text, imported1, imported2, imported3 / 100);
     temp_choice_model.updateVal();
 };
 
-[sliderM1, sliderM2, sliderR].forEach(slider => {
-    slider.addEventListener("mouseup", () => { // Вызываем updateVal только после того, как отпустили ползунок 
-        temp_choice_model.updateVal();
-        MathJax.typeset();
-
+[sliderM1, sliderM2, sliderR].forEach(slider => { // обработчик события для изменения значения на любом из ползунков
+    slider.addEventListener("mouseup", () => { // вызываем updateVal только после того, как отпустили ползунок
+        temp_choice_model.updateVal(); // обновляем модель и интерфейс только один раз после изменения значения 
+        MathJax.typeset(); //перерисовываем математические формулы 
     });
 });
 
-
-
-document.getElementById('Начатьигру').onclick = function () {
-    window.location.href = './index3.html';
+document.getElementById('Начатьигру').onclick = function () { // обработчик события клика по кнопке "Начать игру"
+    window.location.href = './index2.html'; // перенаправляем пользователя на страницу игры (index2.html)
 };
 
-function animateTextLines(elementId, delay = 200) {
-    const element = document.getElementById(elementId);  // Находим элемент по id
-    const lines = element.querySelectorAll('.animated-line');  // Находим все строки внутри элемента
-    lines.forEach((line, index) => {
-        setTimeout(() => {
-            line.style.opacity = 1;
-        }, index * delay);
+function animateTextLines(elementId, delay = 200) { // 200 миллисекунд будет длиться анимация текста
+    /*
+    Функция для анимированного появления текста по строкам
+    */
+    const element = document.getElementById(elementId);  // находим элемент по id
+    const lines = element.querySelectorAll('.animated-line');  // находим все строки внутри элемента c классом 'animated-line' - это массив
+    lines.forEach((line, index) => { // перебираем все найденные строки 
+        setTimeout(() => { // для каждой строки создаем setTimeout, чтобы отложить ее появление
+            line.style.opacity = 1; // делаем строку видимой, устанавливая opacity = 1 (строка становится полностью непрозрачной)
+        }, index * delay); // задержка для каждой строки увеличивается на значение delay (первая строка - 0, вторая - delay, 
+        // третья - 2*delay и т.д.)
     });
 }
 
-// В вашем коде, после того как текст добавлен в DOM и MathJax обработал формулы, вызовите:
-animateTextLines();
+animateTextLines(); //анимируем текст с объяснение статуса при загрузке старницы
