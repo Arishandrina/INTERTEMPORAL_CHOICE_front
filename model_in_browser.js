@@ -342,7 +342,7 @@ export class Model_in_browser {
 
     updateVal() {
         /*
-        
+
         */
         var val_m1 = document.getElementById("FUNCM1").value;
         var val_m2 = document.getElementById("FUNCM2").value;
@@ -350,7 +350,7 @@ export class Model_in_browser {
 
         // Собираем LaTeX строку с обновленным значением
         var latex_1 = `\\begin{cases}
-        \\max_{c1, c2 \\geq 0} ln(c_{1}) + 2 ln(c_{2})\\\\
+        \\max_{c1, c2 \\geq 0} \\ln(c_{1}) + 2 \\ln(c_{2})\\\\
         s.t. (1+${val_r})c_{1} + c_{2} = (1+${val_r})${val_m1} + ${val_m2}
         \\end{cases}`;
 
@@ -392,7 +392,7 @@ export class Model_in_browser {
         latex_5 = `Для этого необходимо сравнить значения потребления в двух периодах и доходы: </br>`;
 
         if (c1_star < val_m1) {
-            latex_6 = "$$\\text{Оптимальное значение } c_{1} < m_{1} \\text{ и } c_{2} > m_{2}. \\text{Агент}$$";
+            latex_6 = "$$\\text{Оптимальное значение } c^*_{1} < m_{1} \\text{ и } c^*_{2} > m_{2}. \\text{Агент}$$";
             latex_7 = "$$\\text{предпочитает меньше потребить в текущем периоде,}$$";
             latex_8 = "$$\\text{положить деньги в банк, а в следующем периоде}$$";
             latex_9 = "$$\\text{ пользоваться отложенными под процент средствами.}$$";
@@ -400,7 +400,7 @@ export class Model_in_browser {
 
 
         } else {
-            latex_6 = "$$\\text{Оптимальное значение } c_{1} > m_{1} \\text{ и } c_{2} < m_{2}. \\text{Агент} $$";
+            latex_6 = "$$\\text{Оптимальное значение } c^*_{1} > m_{1} \\text{ и } c_{^*2} < m_{2}. \\text{Агент} $$";
             latex_7 = "$$\\text{предпочитает больше потребить в текущем периоде,}$$";
             latex_8 = "$$ \\text{для этого он пользуется текущим доходом, а также берет}$$";
             latex_9 = "$$ \\text{в кредит под процент, который будет возвращать в }$$";
